@@ -6,7 +6,8 @@ from django.http import HttpResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Booking, Menu
-from .serializers import bookingSerializer, menuSerializer
+from .serializers import bookingSerializer, menuSerializer,MenuSerializer
+from rest_framework import generics
 
 
 
@@ -43,5 +44,20 @@ class menuview(APIView):
         if serlializer.is_valid():
             serlializer.save()
             return Response({"status":"success","data":serlializer.data})
+        
+class MenuItemsView (generics.ListCreateAPIView):
+    def get(self, request):
+        items=Menu.objects.all()
+
+
+class MenuItemsView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Menu.objects.all()
+    serializer_class = MenuSerializer
+
+class SingleMenuItemView(generics.RetrieveUpdateAPIView, generics.DestroyAPIView):
+    queryset = Menu.objects.all()
+    serializer_class = MenuSerializer
+
+
         
     
