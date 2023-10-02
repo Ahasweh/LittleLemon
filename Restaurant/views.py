@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from .models import Booking, Menu
 from .serializers import bookingSerializer, menuSerializer,MenuSerializer
 from rest_framework import generics
-
+from rest_framework import viewsets
 
 
 
@@ -57,6 +57,12 @@ class MenuItemsView(generics.RetrieveUpdateDestroyAPIView):
 class SingleMenuItemView(generics.RetrieveUpdateAPIView, generics.DestroyAPIView):
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
+
+
+
+class BookingViewSet(viewsets.ModelViewSet):
+    queryset = Booking.objects.all()
+    serializer_class = bookingSerializer
 
 
         
