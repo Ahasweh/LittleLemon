@@ -1,4 +1,5 @@
-All APIs are secured. Please use this Token: 694abb9b9651e6e31c936cc3eabf1be5686ea1be or genrate a new one using the first API below
+All APIs are secured. 
+Please use this Token: 694abb9b9651e6e31c936cc3eabf1be5686ea1be or genrate a new one using the first API below
 
 
 1- To Generate a Token:
